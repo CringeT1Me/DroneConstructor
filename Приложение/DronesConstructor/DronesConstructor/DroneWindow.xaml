@@ -1,0 +1,105 @@
+﻿<Window x:Class="DronesConstructor.DroneWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DronesConstructor"
+        mc:Ignorable="d"
+            Title="Результат" Height="720" Width="1280" Background="DimGray" WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.5*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Модули" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+
+            <ListView x:Name="moduleListView" Grid.Row="1" Background="DimGray">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="BorderBrush" Value="Gray"/>
+                        <Setter Property="BorderThickness" Value="0,0.3,0,0"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Label Grid.Column="0" Content="{Binding name}" Foreground="AliceBlue" HorizontalContentAlignment="Stretch" FontSize="20"></Label>
+                            <Line></Line>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <Button Grid.Row="4" x:Name="deleteButton" Margin="5" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxHeight="50" MaxWidth="200" Content="Удалить" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin="0.76,0.697" Click="deleteButton_Click" ></Button>
+
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.6*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+
+            </Grid>
+            <Label x:Name="typeLabel" Grid.Row="0" Grid.Column="0" Content="Компоненты " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Мотор" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="0" Grid.Column="1" Content="Наименование дрона" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="0" Grid.Column="2" Content="Пропеллер" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="2" Grid.Column="0" Content="Плата" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Content="Регулятор" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="2" Grid.Column="2" Content="Батарея" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+
+                <Label x:Name="motorLabel" Grid.Row="1" Grid.Column="0" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label x:Name="propLabel" Grid.Row="1" Grid.Column="2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label x:Name="boardLabel" Grid.Row="3" Grid.Column="0" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label x:Name="ESCLabel" Grid.Row="3" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label x:Name="batteryLabel" Grid.Row="3" Grid.Column="2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label x:Name="nameLabel" Grid.Row="1" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+
+            </Grid>
+            <Label Grid.Row="2" Grid.Column="0" Content="Технические характеристики" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Вес основания" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="0" Grid.Column="1" Content="Грузоподьемность" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="0" Grid.Column="2" Content="Обороты в минуту" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="0" Grid.Column="3" Content="Продолжительность полета" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+
+                <Label x:Name="droneWeightLabel" Grid.Row="1" Grid.Column="0" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label x:Name="positiveLoadLabel" Grid.Row="1" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label x:Name="RPMLabel"  Grid.Row="1" Grid.Column="2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label x:Name="flightTimeLabel" Grid.Row="1" Grid.Column="3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

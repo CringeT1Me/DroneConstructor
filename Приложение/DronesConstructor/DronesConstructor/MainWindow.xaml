@@ -1,0 +1,119 @@
+﻿<Window x:Class="DronesConstructor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DronesConstructor"
+        mc:Ignorable="d"
+        Title="Конструктор БПЛА" Height="720" Width="1280" Background="DimGray" WindowState="Maximized" Closed="Window_Closed">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid  Grid.Row="1">
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Row="0" Grid.Column="0" Content="Продолжительность полета" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="0" Grid.Column="1" Content="Вес рамы" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="2" Grid.Column="0" Content="Обороты в минуту" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Content="Грузоподьемность" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+                <Button Grid.Row="4" Grid.Column="0" x:Name="componentsButton" Margin="5" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxHeight="50" MaxWidth="300" Content="Компоненты дрона" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="componentsButton_Click" ></Button>
+                <Button Grid.Row="4" Grid.Column="1" x:Name="droneListButton" Margin="5" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxHeight="50" MaxWidth="300" Content="Список дронов" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="droneListButton_Click" ></Button>
+
+                <TextBox Grid.Row="1" Grid.Column="0" x:Name="flightDurationTextBox" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" MaxWidth="300" MaxHeight="40" LostFocus="flightDurationTextBox_LostFocus"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="frameWeightTextBox" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" MaxWidth="300" MaxHeight="40" LostFocus="frameWeightTextBox_LostFocus"/>
+                <TextBox Grid.Row="3" Grid.Column="0" x:Name="speedTextBox" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" MaxWidth="300" MaxHeight="40" LostFocus="speedTextBox_LostFocus"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="payloadTextBox" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" MaxWidth="300" MaxHeight="40" LostFocus="payloadTextBox_LostFocus"/>
+            
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Список задач" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="2" Foreground="AliceBlue"></Label>
+                <Label Grid.Row="2" Content="Модули" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="2" Foreground="AliceBlue"></Label>
+
+                <ListView x:Name="objectiveListView" Grid.Row="1" Background="DimGray">
+                    <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="BorderBrush" Value="Gray"/>
+                        <Setter Property="BorderThickness" Value="0,0.3,0,0"/>
+                    </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Column="0" VerticalAlignment="Center" IsChecked="{Binding active}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
+                                <Label Grid.Column="1" Content="{Binding name}" Foreground="AliceBlue" HorizontalContentAlignment="Stretch" FontSize="20"></Label>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView x:Name="moduleListView" Grid.Row="3" Background="DimGray">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="BorderBrush" Value="Gray"/>
+                            <Setter Property="BorderThickness" Value="0,0.3,0,0"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Column="0" VerticalAlignment="Center" IsChecked="{Binding active}"></CheckBox>
+                                <Label Grid.Column="1" Content="{Binding name}" Foreground="AliceBlue" HorizontalContentAlignment="Stretch" FontSize="20"></Label>
+                                <Line></Line>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="applyButton" Margin="5" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxHeight="50" MaxWidth="200" Content="Далее" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin="0.76,0.697" Click="applyButton_Click" ></Button>
+                
+                </Grid>
+            </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+           
+        </Grid>
+
+        <Label Grid.Row="0" Content="Заполните требуемые летно-технические характеристики" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="58,36,58,31" Foreground="AliceBlue" Height="44" Width="676"></Label>
+
+    </Grid>
+</Window>

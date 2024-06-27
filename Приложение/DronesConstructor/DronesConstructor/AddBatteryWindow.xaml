@@ -1,0 +1,41 @@
+﻿<Window x:Class="DronesConstructor.AddBatteryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DronesConstructor"
+        mc:Ignorable="d"
+        Title="Добавление батареи" Height="500" Width="1000" Background="DimGray">
+
+    <Grid>
+        <Grid>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Наименование батареи" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+            <Label Grid.Row="0" Grid.Column="1" Content="Емкость" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+            <Label Grid.Row="0" Grid.Column="2" Content="Номинальный ток разряда" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+            <Label Grid.Row="2" Grid.Column="0" Content="Число ячеек" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+            <Label Grid.Row="2" Grid.Column="1" Content="Масса батареи" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="2" Foreground="AliceBlue"></Label>
+
+            <TextBox TextWrapping="WrapWithOverflow" Grid.Row="1" Grid.Column="0" x:Name="nameTextBox" FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" MaxWidth="300" MaxHeight="50"/>
+            <TextBox TextWrapping="WrapWithOverflow" Grid.Row="1" Grid.Column="1" x:Name="capacityTextBox" FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" MaxWidth="300" MaxHeight="50"/>
+            <TextBox TextWrapping="WrapWithOverflow" Grid.Row="1" Grid.Column="2" x:Name="dischargeTextBox" FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" MaxWidth="300" MaxHeight="50"/>
+            <TextBox TextWrapping="WrapWithOverflow" Grid.Row="3" Grid.Column="0" x:Name="countOfCelssTextBox" FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" MaxWidth="300" MaxHeight="50"/>
+            <TextBox TextWrapping="WrapWithOverflow" Grid.Row="3" Grid.Column="1" x:Name="weightTextBox" FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" MaxWidth="300" MaxHeight="50"/>
+            <Button Grid.Row="3" Grid.Column="2"  x:Name="applyButton" Margin="5" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxHeight="50" MaxWidth="200" Content="Сохранить" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin="0.76,0.697" Click="applyButton_Click" ></Button>
+
+        </Grid>
+    </Grid>
+</Window>
